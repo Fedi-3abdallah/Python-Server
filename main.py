@@ -9,7 +9,6 @@ from server import HTTPServer
 router = Router()
 
 
-# Handlers
 async def home_handler(request: HTTPRequest) -> HTTPResponse:
     return HTTPResponse.text("Welcome to the Async HTTP Server from scratch!")
 
@@ -32,7 +31,6 @@ async def echo_handler(request: HTTPRequest) -> HTTPResponse:
         return HTTPResponse.json({"error": "Invalid JSON body"}, status_code=400)
 
 
-# Routes
 router.add_route("GET", "/", home_handler)
 router.add_route("GET", "/api/status", api_status_handler)
 router.add_route("POST", "/api/echo", echo_handler)
